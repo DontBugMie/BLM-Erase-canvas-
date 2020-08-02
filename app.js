@@ -29,7 +29,7 @@
             ctx.fillStyle = fillColor;
             ctx.fillRect(0, 0, width, height);
         };
-        ctx.clearTo(fillColor || "#ddd");
+        ctx.clearTo(fillColor || "black");
 
         // bind mouse events
         canvas.node.onmousemove = function(e) {
@@ -38,20 +38,20 @@
             }
             var x = e.pageX - this.offsetLeft;
             var y = e.pageY - this.offsetTop;
-            var radius = 10; // or whatever
+            var radius = 40; // or whatever
             var fillColor = '#ff0000';
             ctx.globalCompositeOperation = 'destination-out';
             ctx.fillCircle(x, y, radius, fillColor);
         };
         canvas.node.onmousedown = function(e) {
-            canvas.isDrawing = true;
+            canvas.isDrawing = false;
         };
         canvas.node.onmouseup = function(e) {
-            canvas.isDrawing = false;
+            canvas.isDrawing = true;
         };
     }
 
     var container = document.getElementById('canvas');
-    init(container, 531, 438, '#ddd');
+    init(container, 531, 438, 'black');
 
 })();
